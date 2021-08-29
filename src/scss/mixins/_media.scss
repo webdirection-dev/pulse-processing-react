@@ -1,0 +1,6 @@
+// for Adaptive
+@mixin mediaSize($_size) {
+    @media (min-width: $_size) {
+        @content;
+    }
+}

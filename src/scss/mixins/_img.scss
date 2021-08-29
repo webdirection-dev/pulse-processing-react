@@ -1,0 +1,5 @@
+@mixin img() {
+    background-color: $basic;
+    object-fit: fill;
+    object-position: top;
+}

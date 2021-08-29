@@ -1,0 +1,53 @@
+@import './var';
+@import '../mixins/media';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px
+}
+
+body {
+    font-family: $font;
+    font-weight: normal;
+    background: $basic;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: $content-size;
+    width: 100%;
+
+    @include mediaSize($phoneVertical) {
+        width: 300px;
+    }
+
+    @include mediaSize($phone) {
+        width: 500px
+    }
+
+    @include mediaSize($tablet) {
+        width: 680px
+    }
+
+    @include mediaSize($notebook) {
+        width: 892px
+    }
+
+    @include mediaSize($desktop) {
+        width: 924px
+    }
+
+    @include mediaSize($projector) {
+        width: 1168px
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
