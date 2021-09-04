@@ -20,7 +20,7 @@ export default class PulseService extends React.Component {
             id: data.ID,
             name: this.props,
             time: data.UF_DATE,
-            data: data.UF_LESS10MIN
+            data: data.UF_ALLDOC
         }
     }
 }

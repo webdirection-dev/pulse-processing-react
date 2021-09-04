@@ -1,111 +1,119 @@
 import React from "react";
-import PulseService from "../../services/pulseService";
-import PulseDb from "../../db/dbProcessing";
-import Spinner from "../spinner";
+import ProcessingItem from "../processing";
 
 export default class Main extends React.Component {
-
-    state = {
-        response: {name: null, time: null, data: null},
-        loading: true
-    };
-
-    getTest = new PulseService(this.props.type);
-
-    componentDidMount() {
-        this.updateState();
-    }
-
-    onDataLoaded(response) {
-        this.setState({
-            response,
-            loading: false
-        });
-    }
-
-    updateState() {
-        const group = this.props.type,
-            pathToDb = PulseDb(group);
-
-        this.getTest.getResource(pathToDb)
-            .then(response => {
-                this.onDataLoaded(response);
-                // response.forEach(item => console.log(item));
-                // this.setState({
-                //     response
-                // });
-            })
-            .catch(error => console.error(error));
-    }
-
     render() {
-        let responseState;
-
-        if (this.state.response.name === null) {
-            responseState = this.state.response;
-        } else responseState = this.state.response[5];
-
-        const {loading} = this.state;
-        const content = loading ? <Spinner /> : <View responseState={responseState}/> ;
-
         return(
             <div className="processing">
                 <h2 className='processing__title'>Processing</h2>
-                {content}
+                <ul className="processing__list">
+                    <ProcessingItem type='milk'/>
+                    <ProcessingItem type='medicine'/>
+                    <ProcessingItem type='lp'/>
+                    <ProcessingItem type='shoes'/>
+                    <ProcessingItem type='perfume'/>
+                    <ProcessingItem type='tobacco'/>
+                    <ProcessingItem type='photo'/>
+                    <ProcessingItem type='tires'/>
+                </ul>
             </div>
         )
     }
 }
 
-const View = (props) => {
-    const data = props.responseState;
-    return(
-        <>
-            <ul className="processing__list">
-                <li className="processing__item">
-                    <h3 className='processing__name'>Товарная группа: {data.name}</h3>
-                    <div className="processing__data">{data.time}: {data.data}</div>
-                </li>
-            </ul>
-        </>
-    )
-};
-
-// const getTest = new PulseService();
-// const {milk} = PulseDb();
-// const arr = [];
+// export default class Main extends React.Component {
 //
-// getTest.getResource(milk)
-//     .then(response => {
-//         response.forEach(item => {
-//             arr.push(
-//                 <li className="processing__item">
-//                     {item.UF_LESS10MIN}
-//                 </li>
-//             )
-//         });
-//         // response.forEach(item => console.log(item.UF_LESS10MIN));
-//     })
-//     .catch(error => console.error(error));
+//     state = {
+//         dataList: null,
+//         loading: true
+//     };
 //
-// console.log(arr);
+//     getTest = new PulseService(this.props.type);
 //
-// const Main = () => {
+//     componentDidMount() {
+//         const group = this.props.type,
+//             pathToDb = PulseDb(group);
+//
+//         this.getTest.getResource(pathToDb)
+//             .then(dataList => {
+//                 this.setState({
+//                     dataList,
+//                     loading: false
+//                 });
+//             })
+//             .catch(error => console.error(error));
+//     }
+//
+//     onShowAllData = (event) => {
+//         event.preventDefault();
+//     }
+//
+//     renderItem(arr) {
+//         return arr.map((item, index) => {
+//             let classesForWorn = 'processing__item';
+//             if (+item.data === 0) classesForWorn += ' warning';
+//
+//             if (index === arr.length-1) {
+//                 return(
+//                     <li
+//                         key={item.id}
+//                         className={classesForWorn}
+//                     >
+//                         <h3 className='processing__name'>Товарная группа: {item.name}</h3>
+//                         <div className="processing__data">{item.time}: {item.data}</div>
+//                         <button
+//                             className='btn processing__btn'
+//                             onClick={this.onShowAllData}
+//                         >Test</button>
+//                     </li>
+//                 )
+//             } else return null;
+//         })
+//     }
+//
+//     renderItems(arr) {
+//         return arr.reverse().map((item, index) => {
+//             let classForWorn = 'processing__item';
+//             if (+item.data === 0) classForWorn += ' warning';
+//
+//             if (index !== 0) {
+//                 return(
+//                     <li
+//                         key={item.id}
+//                         className={classForWorn}
+//                     >
+//                         <h3 className='processing__name'>Товарная группа: {item.name}</h3>
+//                         <div className="processing__data">{item.time}: {item.data}</div>
+//                     </li>
+//                 )
+//             } else return null;
+//         })
+//     }
+//
+//     render() {
+//         const {dataList} = this.state;
+//
+//         if (!dataList) return <Spinner />
+//
+//         const item = this.renderItem(dataList);
+//         const items = this.renderItems(dataList);
+//
+//         return(
+//             <View item={item} items={items}/>
+//         )
+//     }
+// }
+//
+// const View = (props) => {
+//     const {item, items} = props;
 //     return(
-//         <main className='wrapper'>
-//             <div className="processing">
-//                 <ul className="processing__list">
-//                     {arr}
-//                     {/*<li className="processing__item">*/}
-//                     {/*    Test*/}
-//                     {/*</li>*/}
-//                     {/*<li className="processing__item">*/}
-//                     {/*    Test*/}
-//                     {/*</li>*/}
-//                 </ul>
-//             </div>
-//         </main>
+//         <div className="processing">
+//             <Spinner />
+//             <h2 className='processing__title'>Processing</h2>
+//             <ul className="processing__list">
+//                 {item}
+//                 {items}
+//             </ul>
+//         </div>
 //     )
 // };
-//
-// export default Main;

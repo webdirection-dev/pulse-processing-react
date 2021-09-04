@@ -1,5 +1,16 @@
+.warning {
+    color: red;
+}
+
+.showProcessingList {
+    display: block !important;
+}
+
 .processing {
     display: flex;
     flex-direction: column;
     align-items: center;
+    &__subList {
+        display: none;
+    }
 }
