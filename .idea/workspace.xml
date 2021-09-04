@@ -24,6 +24,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -33,6 +34,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/main2" />
       <recent name="$PROJECT_DIR$/src/components" />
@@ -68,7 +72,8 @@
       <workItem from="1630251091571" duration="20943000" />
       <workItem from="1630278597743" duration="27000" />
       <workItem from="1630278729498" duration="488000" />
-      <workItem from="1630774959229" duration="15261000" />
+      <workItem from="1630774959229" duration="15348000" />
+      <workItem from="1630795860802" duration="532000" />
     </task>
     <servers />
   </component>

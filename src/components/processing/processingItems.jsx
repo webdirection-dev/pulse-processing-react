@@ -11,7 +11,6 @@ const RenderItems = (arr) => {
                     key={item.id}
                     className={classForWorn}
                 >
-                    <h3 className='processing__name'>Товарная группа: {item.name}</h3>
                     <div className="processing__data">{item.time}: {item.data}</div>
                 </li>
             )
