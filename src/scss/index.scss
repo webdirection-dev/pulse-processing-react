@@ -2,3 +2,15 @@
 @import "mixins";
 @import "components";
 @import "layout";
+
+.warning {
+    color: red;
+}
+
+.show {
+    display: block !important;
+}
+
+.hidden {
+    display: none !important;
+}

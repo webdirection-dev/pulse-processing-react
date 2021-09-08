@@ -1,16 +1,19 @@
-import React from "react";
+import React, {Component} from "react";
 import './spinner.css';
 
-const Spinner = () => {
-    return(
-        <div className="loadingio-spinner-pulse-2903fcitd9f">
-            <div className="ldio-mf2s7y42989">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    )
-};
+export default class Spinner extends Component {
 
-export default Spinner;
+    render() {
+        let classesSpinner = 'loadingio-spinner-pulse-2903fcitd9f' + this.props.spinnerClasses;
+
+        return(
+            <div className={classesSpinner}>
+                <div className="ldio-mf2s7y42989">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        )
+    }
+};

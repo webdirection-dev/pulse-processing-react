@@ -1,0 +1,73 @@
+.onMouseClick {
+    width: 18rem !important;
+    margin: 0 auto;
+    border: 0 !important;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    height: 325px;
+    margin: 0 auto;
+    padding: 5rem 0;
+    &__logo {
+        width: 20rem;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        font-size: 2.4rem;
+        font-weight: 700;
+    }
+    &__spinner-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 20rem;
+        overflow: hidden;
+    }
+    &__subtitle {
+        display: none;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin: 0 auto;
+    }
+    &__btns {
+        display: flex;
+        flex-direction: column;
+        box-sizing: content-box;
+    }
+    &__btn {
+        @include btn();
+        width: 20rem;
+        height: 4.5rem;
+        font-size: 1.6rem;
+        color: $white;
+        border-radius: 1rem;
+        margin-top: 1.5rem;
+        border: 2px solid $basic;
+    }
+    &__refresh {
+        background:darkblue;
+        &:hover {
+            border: 2px solid darkblue;
+        }
+    }
+    &__guide {
+        background:darkslateblue;
+        &:hover {
+            border: 2px solid darkslateblue;
+        }
+    }
+    &__theme {
+        background:blueviolet;
+        &:hover {
+            border: 2px solid blueviolet;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+// BTN
+@mixin btn() {
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    user-select: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+// LINK
+@mixin link() {
+    text-decoration: none;
+    user-select: none;
+}
