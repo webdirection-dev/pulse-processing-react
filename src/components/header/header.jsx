@@ -35,7 +35,7 @@ export default class Header extends Component {
             this.setState({
                 mouseClick: !this.state.mouseClick
             });
-        }, 200);
+        }, 2000);
     };
 
     render() {
@@ -66,7 +66,10 @@ export default class Header extends Component {
                     <button
                         className={headerBtnClasses}
                         onMouseDown={this.onClickMouse}
-                        onClick={this.onRefresh}
+                        onClick={() => {
+                            this.onRefresh();
+                            this.props.onRefreshProcessing();
+                        }}
                     >
                         Refresh
                     </button>

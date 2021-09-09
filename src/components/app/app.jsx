@@ -1,16 +1,44 @@
-import React from "react";
+import React, {Component} from "react";
 import Header from "../header";
 import Main from "../main";
 
-function App() {
-    return (
-        <>
-            <Header />
-            <main className='wrapper'>
-                <Main />
-            </main>
-        </>
-    );
-}
+export default class App extends Component {
+    state = {
+        refreshProcessing: false
+    }
 
-export default App;
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                refreshProcessing: true
+            });
+        }, 2000);
+    }
+
+    onRefreshProcessing = () => {
+        this.setState({
+            refreshProcessing: false
+        });
+
+        setTimeout(() => {
+            this.setState({
+                refreshProcessing: true
+            });
+        }, 2000);
+    };
+
+    render() {
+        const {refreshProcessing} = this.state;
+        let outProcessing = null;
+        if (refreshProcessing) outProcessing = <Main />
+
+        return (
+            <>
+                <Header onRefreshProcessing={this.onRefreshProcessing}/>
+                <main className='wrapper'>
+                    {outProcessing}
+                </main>
+            </>
+        );
+    }
+}
