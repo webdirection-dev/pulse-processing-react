@@ -2,12 +2,77 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    background-color: honeydew;
+    border-radius: 5px;
+    &__list {
+        width: 100%;
+        border-radius: 5px;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        padding-bottom: 1rem;
+        &:hover {
+            background-color: #b3d4fc;
+            border-radius: 5px 5px 0 0;
+        }
+    }
+    &__head span{
+        font-weight: bold;
+    }
+    &__name {
+        font-size: 1.8rem;
+    }
     &__subList {
         display: none;
+        padding-left: 2rem;
+        padding-bottom: 1rem;
+        &:nth-last-child(1) {
+            border-bottom: black solid 1px;
+        }
+    }
+    &__subList-bg {
+        background-color: #E8F2FF !important;
     }
     &__btn {
         @include btn();
-        background-color: blueviolet;
-        color: #cccccc;
+        color: $black;
+        margin-left: 1rem;
+        padding: 0 3px;
+    }
+    &__btn-title {
+        &::after {
+            content: '\002B';
+            font-size: 28px;
+        }
+    }
+    &__btn-list {
+        @include btn();
+        color: $black;
+        margin-left: 1rem;
+        &::after {
+            content: '\2212';
+            font-size: 28px;
+        }
+    }
+    &__head-hover {
+        background-color: #E8F2FF !important;
+        //&:hover {
+        //    background-color: transparent !important;
+        //}
+    }
+    &__data {
+        font-size: 1.2rem;
     }
 }

@@ -11,8 +11,7 @@ export default class Processing extends Component {
 
     getTest = new PulseService(this.props.type);
 
-    onShowAllData = (event) => {
-        event.preventDefault();
+    onShowAllData = () => {
         this.setState({
             toggleList: !this.state.toggleList,
             reverse: !this.state.reverse
@@ -39,7 +38,7 @@ const View = (props) => {
     const {type, toggleList, onShowAllData, reverse} = props;
 
     let classesList = 'processing__subList';
-    if (toggleList) classesList += ' show';
+    if (toggleList) classesList += ' show scale-up-ver-top processing__subList-bg';
     return(
         <>
             <ProcessingData type={type} onShowAllData={onShowAllData}/>

@@ -6,28 +6,20 @@ export default class Main extends React.Component {
         refresh: true
     }
 
-    // refreshProcessing = () => {
-    //     this.setState({
-    //         refresh: false
-    //     });
-    //
-    //     setTimeout(() => {
-    //         this.setState({
-    //             refresh: true
-    //         });
-    //     }, 2000);
-    // };
-
     render() {
+        let animation = 'processing';
+        if (this.props.classForDownProcessing) animation += ' scale-down-ver-top'
+
         if (this.state.refresh) {
-            return <ViewProcessing />
+            return <ViewProcessing animation={animation}/>
         } else return null
     }
 }
 
-const ViewProcessing = () => {
+const ViewProcessing = (props) => {
+    const {animation} = props;
     return(
-        <div className="processing">
+        <div className={animation}>
             <ul className="processing__list">
                 <Processing type='milk'/>
                 <Processing type='medicine'/>

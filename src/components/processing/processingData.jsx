@@ -12,11 +12,9 @@ export default class ProcessingData extends Component {
 
     getDate = new PulseService(this.props.type);
 
-
     componentDidMount() {
         const group = this.props.type,
             pathToDb = PulseDb(group);
-
 
         this.getDate.getResource(pathToDb)
             .then(dataList => {
@@ -33,7 +31,8 @@ export default class ProcessingData extends Component {
 
         if (!dataList) return null;
 
-        const item = GetElemProcessing(dataList, onShowAllData, list);
+        const item = <GetElemProcessing dataList={dataList} onShowAllData={onShowAllData} list={list}/>;
+        // const item = GetElemProcessing(dataList, onShowAllData, list);
 
         return(
             <>

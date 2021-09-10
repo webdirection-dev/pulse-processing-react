@@ -45,7 +45,7 @@ export default class Header extends Component {
         if (!showSpinner) spinnerClasses += ' hidden';
 
         let subTitleClasses = 'header__subtitle';
-        if (showSubTitle) subTitleClasses += ' show'
+        if (showSubTitle) subTitleClasses += ' show scale-up-center'
 
         let headerBtnClasses = 'btn header__btn header__refresh';
         if (mouseClick) headerBtnClasses += ' onMouseClick';
