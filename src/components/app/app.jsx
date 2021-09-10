@@ -1,12 +1,15 @@
 import React, {Component} from "react";
 import Header from "../header";
 import Main from "../main";
+import Guide from "../guide";
 import Footer from "../footer";
 
 export default class App extends Component {
     state = {
         refreshProcessing: false,
-        classForDownProcessing: false
+        classForDownProcessing: false,
+        showGuide: false,
+        hideGuide: true
     }
 
     componentDidMount() {
@@ -37,15 +40,36 @@ export default class App extends Component {
         }, 2000);
     };
 
-    render() {
-        const {refreshProcessing, classForDownProcessing} = this.state;
-        let outProcessing = null;
+    onShowGuide = () => {
+        this.setState({
+            showGuide: !this.state.showGuide,
+            hideGuide: false
+        });
 
+        if (this.state.showGuide) {
+            setTimeout(() => {
+                this.setState({
+                    hideGuide: true
+                });
+            }, 250);
+        }
+    };
+
+    render() {
+        const {refreshProcessing, classForDownProcessing, showGuide, hideGuide} = this.state;
+
+        let outProcessing = null;
         if (refreshProcessing) outProcessing = <Main classForDownProcessing={classForDownProcessing}/>
 
         return (
             <>
-                <Header onRefreshProcessing={this.onRefreshProcessing}/>
+                <h1 className="header__title">Скорость обработки документов</h1>
+                <Header
+                    showGuide={showGuide}
+                    onRefreshProcessing={this.onRefreshProcessing}
+                    onShowGuide={this.onShowGuide}
+                />
+                <Guide showGuide={showGuide} hideGuide={hideGuide}/>
                 <main className='wrapper processing-mt'>
                     {outProcessing}
                 </main>

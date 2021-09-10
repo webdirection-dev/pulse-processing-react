@@ -1,0 +1,25 @@
+
+
+.guide {
+    //border-top: 1px solid #203045;
+    &__content {
+        display: none;
+    }
+    &__title {
+        width: 50%;
+        font-size: 1.7rem;
+        text-align: center;
+        color: #d6d8da;
+        background-color: #203045;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    &__txt {
+        width: 50%;
+        font-size: 1.3rem;
+        background-color: #d6d8da;
+        border-radius: 0 0 5px 5px;
+        margin: 0 auto 5rem;
+        padding: 2rem;
+    }
+}

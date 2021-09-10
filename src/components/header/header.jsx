@@ -6,7 +6,8 @@ export default class Header extends Component {
     state = {
         showSpinner: true,
         showSubTitle: false,
-        mouseClick: false
+        mouseClick: false,
+        mouseClickGuide: false
     }
 
     componentDidMount() {
@@ -38,8 +39,23 @@ export default class Header extends Component {
         }, 2000);
     };
 
+    onClickMouseGuide = () => {
+        this.setState({
+            mouseClickGuide: !this.state.mouseClickGuide
+        });
+        setTimeout(() => {
+            this.setState({
+                mouseClickGuide: !this.state.mouseClickGuide
+            });
+        }, 500);
+    };
+
     render() {
-        const {showSpinner, showSubTitle, mouseClick} = this.state;
+        const {showSpinner, showSubTitle, mouseClick, mouseClickGuide} = this.state;
+        const {onShowGuide, showGuide} = this.props;
+
+        let titleGuide = 'Show';
+        if (showGuide) titleGuide = 'Hide'
 
         let spinnerClasses = '';
         if (!showSpinner) spinnerClasses += ' hidden';
@@ -47,8 +63,11 @@ export default class Header extends Component {
         let subTitleClasses = 'header__subtitle';
         if (showSubTitle) subTitleClasses += ' show scale-up-center'
 
-        let headerBtnClasses = 'btn header__btn header__refresh';
+        let headerBtnClasses = 'btn header__btn';
         if (mouseClick) headerBtnClasses += ' onMouseClick';
+
+        let guideBtnClasses = 'btn header__btn';
+        if (mouseClickGuide) guideBtnClasses += ' onMouseClick';
 
         return(
             <header className="header">
@@ -56,7 +75,6 @@ export default class Header extends Component {
                     <img className="logo" src={Logo} alt="logo"/>
                 </div>
                 <div className="header__content">
-                    <h1 className="header__title">Скорость обработки документов</h1>
                     <div className='header__spinner-content'>
                         <Spinner spinnerClasses={spinnerClasses}/>
                         <h2 className={subTitleClasses}>Processing</h2>
@@ -73,8 +91,12 @@ export default class Header extends Component {
                     >
                         Refresh
                     </button>
-                    <button className="btn header__btn header__guide">
-                        Guide
+                    <button
+                        className={guideBtnClasses}
+                        onClick={onShowGuide}
+                        onMouseDown={this.onClickMouseGuide}
+                    >
+                        {titleGuide} Guide
                     </button>
                     <button className="btn header__btn header__theme">
                         Dark Theme
