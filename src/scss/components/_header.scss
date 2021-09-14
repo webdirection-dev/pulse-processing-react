@@ -1,13 +1,20 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     width: 95%;
     margin: 0 auto;
     padding: 10px 0;
+    @include mediaSize($tablet) {
+        justify-content: space-between;
+    }
     &__logo {
+        display: none;
         width: 20rem;
         margin-top: 20px;
+        @include mediaSize($tablet) {
+            display: block;
+        }
     }
     &__content {
         display: flex;
@@ -22,11 +29,14 @@
         padding: 2rem;
     }
     &__spinner-content {
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         height: 20rem;
         overflow: hidden;
+        @include mediaSize($tablet) {
+            display: flex;
+        }
     }
     &__subtitle {
         display: none;

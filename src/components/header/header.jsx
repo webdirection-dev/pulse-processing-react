@@ -7,7 +7,7 @@ export default class Header extends Component {
         showSpinner: true,
         showSubTitle: false,
         mouseClick: false,
-        mouseClickGuide: false
+            mouseClickGuide: false
     }
 
     componentDidMount() {
@@ -52,10 +52,13 @@ export default class Header extends Component {
 
     render() {
         const {showSpinner, showSubTitle, mouseClick, mouseClickGuide} = this.state;
-        const {onShowGuide, showGuide} = this.props;
+        const {onShowGuide, showGuide, onChangeTheme} = this.props;
 
         let titleGuide = 'Show';
         if (showGuide) titleGuide = 'Hide'
+
+        let titleTheme = 'Dark';
+        if (localStorage.getItem('theme') === 'dark-theme') titleTheme = 'Light'
 
         let spinnerClasses = '';
         if (!showSpinner) spinnerClasses += ' hidden';
@@ -98,8 +101,11 @@ export default class Header extends Component {
                     >
                         {titleGuide} Guide
                     </button>
-                    <button className="btn header__btn header__theme">
-                        Dark Theme
+                    <button
+                        className="btn header__btn header__theme"
+                        onClick={onChangeTheme}
+                    >
+                        {titleTheme} Theme
                     </button>
                 </div>
             </header>

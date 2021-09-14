@@ -1,0 +1,39 @@
+.dark-theme {
+    background-color: $secondary;
+}
+
+.dark-theme .header__title{
+    color: #909fb2;
+    background-color: $black;
+}
+
+.dark-theme .logo{
+    background-color: transparent;
+}
+
+.dark-theme .header__btn{
+    &:hover {
+        color: $black;
+        border: 2px solid $black;
+    }
+}
+
+.dark-theme .processing{
+    background-color: #909FB2;
+}
+
+.dark-theme .processing__head:hover {
+    background-color: #4C4E53;
+}
+
+.dark-theme .processing__head-hover {
+    background-color: #B9C7D9 !important;
+}
+
+.dark-theme .processing__subList-bg {
+    background-color: #B9C7D9 !important;
+}
+
+.dark-theme .footer{
+    background-color: $black;
+}

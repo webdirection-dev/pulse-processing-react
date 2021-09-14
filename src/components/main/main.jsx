@@ -7,19 +7,21 @@ export default class Main extends React.Component {
     }
 
     render() {
-        let animation = 'processing';
-        if (this.props.classForDownProcessing) animation += ' scale-down-ver-top'
+        let classProcessing = 'processing';
+        if (this.props.classForDownProcessing) classProcessing += ' scale-down-ver-top'
 
         if (this.state.refresh) {
-            return <ViewProcessing animation={animation}/>
+            return (
+                <ViewProcessing classProcessing={classProcessing}/>
+            )
         } else return null
     }
 }
 
 const ViewProcessing = (props) => {
-    const {animation} = props;
+    const {classProcessing} = props;
     return(
-        <div className={animation}>
+        <div className={classProcessing}>
             <ul className="processing__list">
                 <Processing type='milk'/>
                 <Processing type='medicine'/>
