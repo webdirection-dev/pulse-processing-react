@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/pulse-processing-react/static/css/main.ec7c7e75.chunk.css",
+    "main.js": "/pulse-processing-react/static/js/main.957dc71a.chunk.js",
+    "main.js.map": "/pulse-processing-react/static/js/main.957dc71a.chunk.js.map",
+    "runtime-main.js": "/pulse-processing-react/static/js/runtime-main.bdba505e.js",
+    "runtime-main.js.map": "/pulse-processing-react/static/js/runtime-main.bdba505e.js.map",
+    "static/js/2.46bee7af.chunk.js": "/pulse-processing-react/static/js/2.46bee7af.chunk.js",
+    "static/js/2.46bee7af.chunk.js.map": "/pulse-processing-react/static/js/2.46bee7af.chunk.js.map",
+    "index.html": "/pulse-processing-react/index.html",
+    "static/css/main.ec7c7e75.chunk.css.map": "/pulse-processing-react/static/css/main.ec7c7e75.chunk.css.map",
+    "static/js/2.46bee7af.chunk.js.LICENSE.txt": "/pulse-processing-react/static/js/2.46bee7af.chunk.js.LICENSE.txt",
+    "static/media/logo-mini.9bf0666a.webp": "/pulse-processing-react/static/media/logo-mini.9bf0666a.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bdba505e.js",
+    "static/js/2.46bee7af.chunk.js",
+    "static/css/main.ec7c7e75.chunk.css",
+    "static/js/main.957dc71a.chunk.js"
+  ]
+}
